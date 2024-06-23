@@ -1,0 +1,138 @@
+{
+  "main": {
+    "id": "58a1894d79f65904",
+    "type": "split",
+    "children": [
+      {
+        "id": "c1bdf4c7bdca6902",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3eb4c2f76b878476",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Modellierung/State.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "dbb25e2e43be85f0",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "4240f2d56628f91f",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "e6874232617c2c61",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "c6500503abaf0aa8",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          }
+        }
+      },
+      {
+        "id": "888fb5374182ede6",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "53d95263271376a8",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "e651e0f9d34e8604",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "Modellierung/State.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "8cbfa8c00508ede2",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "Modellierung/State.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "7d7c627aca0ba2dc",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "Modellierung/State.md"
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Schnellauswahl öffnen": false,
+      "graph:Graphen-Ansicht öffnen": false,
+      "canvas:Neuen Canvas erstellen": false,
+      "daily-notes:Heutige Notiz öffnen": false,
+      "templates:Vorlage einfügen": false,
+      "command-palette:Befehlspalette öffnen": false,
+      "obsidian-kanban:Erstelle ein neues Board": false,
+      "mermaid-tools:Open Mermaid Toolbar": false
+    }
+  },
+  "active": "3eb4c2f76b878476",
+  "lastOpenFiles": []
+}

@@ -1,0 +1,280 @@
+{
+  "main": {
+    "id": "90063d99041c03ac",
+    "type": "split",
+    "children": [
+      {
+        "id": "9adc94ec8219fb97",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0ab34f2f07e0d40b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Modellierung/State.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d48110db33dfe8d3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Modellierung/Observer.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "20c44aeca617b972",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Modellierung/State.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7dddea70befedeed",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Modellierung/Factory Method.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "375bf5a2dc7ce801",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Modellierung/Strategy.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1367ee16e8482dd9",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          },
+          {
+            "id": "3588d70d941cbe90",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Modellierung/Entwurfsmuster überblick über Alle.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6ce1a72260da7a29",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Modellierung/Factory Method.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1eb35beef9c8d2fe",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Modellierung/Decorator.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9c9fbbccce7341b7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Modellierung/Entwurfsprinzipien.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 9
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0d4a2174012f1d53",
+    "type": "split",
+    "children": [
+      {
+        "id": "6f529273d4eadece",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "158a619911ff4975",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "c22f51a521b5c2bc",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "503d8e0f877c990e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "009e09c235063c79",
+    "type": "split",
+    "children": [
+      {
+        "id": "30b6d3accdf35dda",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "96d5a9ed2c51830d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Modellierung/Entwurfsprinzipien.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1e88b92b2f1ed636",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Modellierung/Entwurfsprinzipien.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f8d32c1a0b8ec9b0",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "696385f46770c869",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Modellierung/Entwurfsprinzipien.md"
+              }
+            }
+          },
+          {
+            "id": "803fd82462437d90",
+            "type": "leaf",
+            "state": {
+              "type": "mermaid-toolbar-view",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Schnellauswahl öffnen": false,
+      "graph:Graphen-Ansicht öffnen": false,
+      "canvas:Neuen Canvas erstellen": false,
+      "daily-notes:Heutige Notiz öffnen": false,
+      "templates:Vorlage einfügen": false,
+      "command-palette:Befehlspalette öffnen": false,
+      "obsidian-kanban:Erstelle ein neues Board": false,
+      "mermaid-tools:Open Mermaid Toolbar": false
+    }
+  },
+  "active": "9c9fbbccce7341b7",
+  "lastOpenFiles": [
+    "Modellierung/Decorator.md",
+    "Modellierung/Protokol-Zustandsautomat.md",
+    "Modellierung/Entwurfsprinzipien.md",
+    "Modellierung/Singleton.md",
+    "Modellierung/Factory Method.md",
+    "Modellierung/Observer.md",
+    "Modellierung/Entwurfsmuster überblick über Alle.md",
+    "Modellierung/State.md",
+    "Modellierung/Strategy.md",
+    "Modellierung/Entwurfsmuster.md",
+    "Modellierung",
+    "Welcome.md"
+  ]
+}
