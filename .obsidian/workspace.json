@@ -118,7 +118,7 @@
               "type": "markdown",
               "state": {
                 "file": "Modellierung/Entwurfsprinzipien.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               }
             }
@@ -264,14 +264,14 @@
   },
   "active": "9c9fbbccce7341b7",
   "lastOpenFiles": [
+    "Modellierung/Observer.md",
+    "Modellierung/Singleton.md",
+    "Modellierung/State.md",
+    "Modellierung/Entwurfsprinzipien.md",
+    "Modellierung/Entwurfsmuster überblick über Alle.md",
+    "Modellierung/Factory Method.md",
     "Modellierung/Decorator.md",
     "Modellierung/Protokol-Zustandsautomat.md",
-    "Modellierung/Entwurfsprinzipien.md",
-    "Modellierung/Singleton.md",
-    "Modellierung/Factory Method.md",
-    "Modellierung/Observer.md",
-    "Modellierung/Entwurfsmuster überblick über Alle.md",
-    "Modellierung/State.md",
     "Modellierung/Strategy.md",
     "Modellierung/Entwurfsmuster.md",
     "Modellierung",
