@@ -1,4 +1,7 @@
 [
   "obsidian-kanban",
-  "mermaid-tools"
+  "mermaid-tools",
+  "dataview",
+  "obsidian-latex",
+  "obsidian-latex-environments"
 ]

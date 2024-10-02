@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "a9ebf4544d983f84",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Datenbanken/Vorlesung 2 30.09.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Modellierung/State.md",
+            "file": "Datenbanken/Vorlesung 2 30.09.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Modellierung/State.md",
+            "file": "Datenbanken/Vorlesung 2 30.09.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +127,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Modellierung/State.md"
+            "file": "Datenbanken/Vorlesung 2 30.09.md"
           }
         }
       }
@@ -133,6 +146,12 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "3eb4c2f76b878476",
-  "lastOpenFiles": []
+  "active": "a9ebf4544d983f84",
+  "lastOpenFiles": [
+    "Modellierung/State.md",
+    "Datenbanken/Vorlesung 2 30.09.md",
+    "Datenbanken/Vorlesung 1 26.09.md",
+    "Gamification/Annas Ideen.md",
+    "Gamification"
+  ]
 }

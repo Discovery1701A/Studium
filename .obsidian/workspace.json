@@ -141,6 +141,30 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "Datenbanken/Vorlesung 2 30.09.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "12db7659c5a2e640",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Datenbanken/Vorlesung 2 30.09.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a17ad994c6a18ecf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "Gamification/Annas Ideen.md",
                 "mode": "source",
                 "source": false
@@ -148,7 +172,7 @@
             }
           }
         ],
-        "currentTab": 11
+        "currentTab": 13
       }
     ],
     "direction": "vertical"
@@ -286,10 +310,15 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "1d24be764bbfff54",
+  "active": "a17ad994c6a18ecf",
   "lastOpenFiles": [
-    "Datenbanken/Vorlesung 1 26.09.md",
+    "Datenbanken/Unbenannt.md",
+    "Datenbanken/Vorlesung 2 30.09.md",
+    "Datenbanken/Vorlesung 2 30.09 schön.md",
     "Gamification/Annas Ideen.md",
+    "Modellierung/Vorlesung 2 30.09.md",
+    "Modellierung/Unbenannt.md",
+    "Datenbanken/Vorlesung 1 26.09.md",
     "Gamification",
     "Datenbanken",
     "Modellierung/Entwurfsprinzipien.md",

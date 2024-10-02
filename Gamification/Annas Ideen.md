@@ -10,12 +10,14 @@ das system schlägt auch dinge vor jenach einstellung. Hausaufgaben, unternehmen
 
 und es gibt auch bescheid wann man schläfen gehnen wollte.
 
+sachen freischalten optioin
 **1. Avatar und Umgebung**
 
 
-• **Avatar-Anpassung**: Nutzer können ihr eigenes Aussehen, Kleidung und Accessoires für ihren Avatar gestalten. Je nach Erfolg und erfüllten Aufgaben können neue Anpassungsoptionen freigeschaltet werden.
+• **Avatar-Anpassung**: Nutzer können ihr eigenes Aussehen, Kleidung und Accessoires für ihren Avatar gestalten. (Je nach Erfolg und erfüllten Aufgaben können neue Anpassungsoptionen freigeschaltet werden.)
 
-• **Haus und Orte**: Nutzer können ihr virtuelles Zuhause dekorieren und erweitern, basierend auf den Punkten, die sie durch das Erfüllen von Aufgaben und Zielen verdienen. Zusätzlich könnten sie bestimmte Orte wie Fitnessstudio, Büro oder Café freischalten, die sie motivieren, ihre geplanten Aufgaben in der realen Welt zu erledigen.
+• **Haus und Orte**: Nutzer können ihr virtuelles Zuhause dekorieren und erweitern Zusätzlich könnten sie bestimmte Orte wie Fitnessstudio, Büro oder Café platzieren, die sie motivieren, ihre geplanten Aufgaben in der realen Welt zu erledigen.
+und natürlich die Häuser von Freunden.
 
 • **Haustiere**: Haustiere könnten als zusätzliche Motivationsquelle dienen, indem sie Pflege und Aufmerksamkeit erfordern, die mit der Erfüllung von Aufgaben verknüpft sind (z. B. virtuelle Fütterung nach dem Erledigen von Aufgaben).Fell soll selbst gestalltet werden können.
 
@@ -90,8 +92,6 @@ Diese Vorschläge könnten auf den Präferenzen des Nutzers basieren (z. B. mehr
   
 
 • **App-Entwicklung**: Das Projekt könnte als mobile App (iOS, Android) entwickelt werden, um die tägliche Nutzung zu erleichtern. Alternativ könnte es eine Web-App sein, die auf verschiedenen Plattformen genutzt werden kann.
-
-• **Gamification Engine**: Du könntest eine Engine einbauen, die basierend auf den Aufgaben und der Aktivität des Nutzers automatische Anpassungen am Avatar und der Umgebung vornimmt.
 
 • **Synchronisation mit Kalendern**: Um die Produktivität zu verbessern, könnte die App mit bestehenden Kalendern (Google Calendar, Apple Calendar) synchronisiert werden, um bereits geplante Ereignisse in die App zu importieren.
 
