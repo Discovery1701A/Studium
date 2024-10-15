@@ -11,6 +11,7 @@ das system schlägt auch dinge vor jenach einstellung. Hausaufgaben, unternehmen
 und es gibt auch bescheid wann man schläfen gehnen wollte.
 
 sachen freischalten optioin
+
 **1. Avatar und Umgebung**
 
 

@@ -25,14 +25,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Datenbanken/Vorlesung 2 30.09.md",
+                "file": "Datenbanken/Vorlesung 2 30.09 schön.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5f491369f60ce46d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Datenbanken/Vorlesung 14.10.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -98,7 +110,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Datenbanken/Vorlesung 2 30.09.md",
+            "file": "Datenbanken/Vorlesung 14.10.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -115,7 +127,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Datenbanken/Vorlesung 2 30.09.md",
+            "file": "Datenbanken/Vorlesung 14.10.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -127,7 +139,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Datenbanken/Vorlesung 2 30.09.md"
+            "file": "Datenbanken/Vorlesung 14.10.md"
           }
         }
       }
@@ -146,10 +158,15 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "a9ebf4544d983f84",
+  "active": "5f491369f60ce46d",
   "lastOpenFiles": [
-    "Modellierung/State.md",
+    "Datenbanken/Vorlesung 2 30.09 schön.md",
+    "Datenbanken/Vorlesung 14.10.md",
+    "Datenbanken/Praktikum 1.md",
     "Datenbanken/Vorlesung 2 30.09.md",
+    "Datenbanken/Unbenannt.md",
+    "Gamification/09.10.2024.md",
+    "Modellierung/State.md",
     "Datenbanken/Vorlesung 1 26.09.md",
     "Gamification/Annas Ideen.md",
     "Gamification"
