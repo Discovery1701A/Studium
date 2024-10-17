@@ -11,12 +11,12 @@ Gegeben seien folgende Tabellen zur Bewertung von Mensagerichten:
 
 _Tabelle STUDENT_
 
-|   |   |
-|---|---|
-|**MatrNr**|**Name**|
-|1|Meier|
-|2|Meyer|
-|3|Maier|
+|            |          |
+| ---------- | -------- |
+| **MatrNr** | **Name** |
+| 1          | Meier    |
+| 2          | Meyer    |
+| 3          | Maier    |
 
 _  
 Tabelle GERICHT_
@@ -46,7 +46,7 @@ Formulieren Sie für die folgenden Aufgaben jeweils einen Ausdruck in der Relati
 
 1. Geben Sie alle Arten von Gerichten aus.
 		SELECT DISTINCT "Art" FROM "GERICHT";
-
+Proj(GERICHT,[Art])
 
 | Art     |
 | ------- |
@@ -59,7 +59,7 @@ Formulieren Sie für die folgenden Aufgaben jeweils einen Ausdruck in der Relati
 
 1. Geben Sie die Namen aller Hauptgerichte (mit der Art „Haupt“) aus.
 		SELECT "Name", "Art" FROM "GERICHT" WHERE "Art" = 'Haupt';
-
+Proj(Sel(Gericht,Gericht.Art = 'Haupt'),[Name,Art])
 
 | Name      | Art   |
 | --------- | ----- |
@@ -70,7 +70,7 @@ Formulieren Sie für die folgenden Aufgaben jeweils einen Ausdruck in der Relati
 		SELECT "GERICHT"."Name", "BEWERTUNG"."Sterne" 
 		FROM "BEWERTUNG" 
 		JOIN "GERICHT" ON "BEWERTUNG"."GNr" = "GERICHT"."GNr";
-
+Proj(Sel(GERICHT X BEWERTUNG, GERICHT.GNr = BERWERTUNG.GNr),[Name,Sterne])
 
 
 | Name         | Sterne |
@@ -88,6 +88,7 @@ Formulieren Sie für die folgenden Aufgaben jeweils einen Ausdruck in der Relati
 		JOIN "GERICHT" ON "BEWERTUNG"."GNr" = "GERICHT"."GNr" 
 		WHERE "STUDENT"."Name" = 'Meier';
 
+Proj(Sel(STUDENT X GERICHT X BEWERTUNG, GERICHT.GNr = BEWERTUNG.GNr AND STUDENT.MatrNr = BEWERTUNG.MatrNr AND STUDENT.Name = 'Meier' ), [GERICHT.Name])
 
 | Name         |
 | ------------ |
@@ -101,8 +102,9 @@ Formulieren Sie für die folgenden Aufgaben jeweils einen Ausdruck in der Relati
 		JOIN "STUDENT" ON "BEWERTUNG"."MatrNr" = "STUDENT"."MatrNr" 
 		JOIN "GERICHT" ON "BEWERTUNG"."GNr" = "GERICHT"."GNr" 
 		WHERE "BEWERTUNG"."Sterne" >= 4;
+Proj(Sel(STUDENT X GERICHT X BEWERTUNG, GERICHT.GNr = BEWERTUNG.GNr AND STUDENT.MatrNr = BEWERTUNG.MatrNr AND BEWERTUNG.Sterne >= 4 ), [STUDENT.NAME, GERICHT.Name, BEWERTUNG.Sterne])
 
-| Student_Name | Gericht_Name | Sterne |
+| STUDENT.Name | GERICHT.Name | Sterne |
 | ------------ | ------------ | ------ |
 | Meyer        | Pizza        | 4      |
 
@@ -112,7 +114,7 @@ Formulieren Sie für die folgenden Aufgaben jeweils einen Ausdruck in der Relati
 		JOIN "STUDENT" ON "BEWERTUNG"."MatrNr" = "STUDENT"."MatrNr" 
 		JOIN "GERICHT" ON "BEWERTUNG"."GNr" = "GERICHT"."GNr" 
 		WHERE "GERICHT"."Name" = 'Schnitzel';
-
+Proj(Sel(STUDENT X GERICHT X BEWERTUNG, GERICHT.GNr = BEWERTUNG.GNr AND STUDENT.MatrNr = BEWERTUNG.MatrNr AND GERICHT.Name = 'Schnitzel' ), [STUDENT.Name])
 
 | Name  |
 | ----- |
@@ -124,6 +126,8 @@ Formulieren Sie für die folgenden Aufgaben jeweils einen Ausdruck in der Relati
 		JOIN "STUDENT" ON "BEWERTUNG"."MatrNr" = "STUDENT"."MatrNr" 
 		GROUP BY "STUDENT"."Name" 
 		HAVING COUNT("BEWERTUNG"."GNr") >= 2;
+
+Proj(Sel(STUDENT X BEWERTUNG, STUDENT.MatrNr = BEWERTUNG:MatrNr AND COUNT(BEWERTUNG.GNr) >= 2),[Name])
 
 | Name  |
 | ----- |
