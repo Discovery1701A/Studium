@@ -2,6 +2,7 @@
 **Aufgabe 1.1**
 
 Geben Sie ein sinnvolles Beispiel für die Verwendung des Ren-Operators (Umbenennung) der Relationenalgebra an.  
+
 Der Ren-Operator (Umbenennung) in der Relationenalgebra wird genutzt, um entweder eine Ergebnistabelle für spätere Abfragen weiterzuverwenden oder um Namenskonflikte zu vermeiden, insbesondere bei Selbst-Joins. Dadurch kann man gleiche Attributnamen aus verschiedenen Relationen eindeutig unterscheiden und die Lesbarkeit der Abfragen verbessern.
   
 
@@ -111,7 +112,7 @@ Proj(Sel(STUDENT X GERICHT X BEWERTUNG, GERICHT.GNr = BEWERTUNG.GNr AND STUDENT.
 		JOIN "GERICHT" ON "BEWERTUNG"."GNr" = "GERICHT"."GNr" 
 		WHERE "BEWERTUNG"."Sterne" >= 4;
 		
-Proj(Sel(STUDENT X GERICHT X BEWERTUNG, GERICHT.GNr = BEWERTUNG.GNr AND STUDENT.MatrNr = BEWERTUNG.MatrNr AND BEWERTUNG.Sterne >= 4 ), [STUDENT.NAME, GERICHT.Name, BEWERTUNG.Sterne])
+Proj(Sel(STUDENT X GERICHT X BEWERTUNG, GERICHT.GNr = BEWERTUNG.GNr AND STUDENT.MatrNr = BEWERTUNG.MatrNr AND BEWERTUNG.Sterne >= 4 ), [STUDENT.Name, GERICHT.Name, BEWERTUNG.Sterne])
 
 | STUDENT.Name | GERICHT.Name | Sterne |
 | ------------ | ------------ | ------ |
@@ -139,7 +140,7 @@ Proj(Sel(STUDENT X GERICHT X BEWERTUNG, GERICHT.GNr = BEWERTUNG.GNr AND STUDENT.
 		GROUP BY "STUDENT"."Name" 
 		HAVING COUNT("BEWERTUNG"."GNr") >= 2;
 
-Proj(Sel(STUDENT X BEWERTUNG, STUDENT.MatrNr = BEWERTUNG:MatrNr AND COUNT(BEWERTUNG.GNr) >= 2),[Name])
+Proj(Sel(Sel Ren(BEWERTUNG ,B1) X Ren(BEWERTUNG,B2), B1.MatrNr = B2.MatrNr AND B1.GrNr <> B2.GrNr )X STUDENT , STUDENT.MatrNr = B1.MatrNr),[Name])
 
 | Name  |
 | ----- |

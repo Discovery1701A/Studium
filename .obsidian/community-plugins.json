@@ -3,5 +3,6 @@
   "mermaid-tools",
   "dataview",
   "obsidian-latex",
-  "obsidian-latex-environments"
+  "obsidian-latex-environments",
+  "better-export-pdf"
 ]
