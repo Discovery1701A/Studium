@@ -45,7 +45,9 @@ Tabelle BEWERTUNG_
 Formulieren Sie für die folgenden Aufgaben jeweils einen Ausdruck in der Relationenalgebra und geben Sie zusätzlich jeweils die Ergebnisrelation an:
 
 1. Geben Sie alle Arten von Gerichten aus.
+
 		SELECT DISTINCT "Art" FROM "GERICHT";
+		
 Proj(GERICHT,[Art])
 
 | Art     |
@@ -57,8 +59,10 @@ Proj(GERICHT,[Art])
 
 
 
-1. Geben Sie die Namen aller Hauptgerichte (mit der Art „Haupt“) aus.
+2. Geben Sie die Namen aller Hauptgerichte (mit der Art „Haupt“) aus.
+
 		SELECT "Name", "Art" FROM "GERICHT" WHERE "Art" = 'Haupt';
+		
 Proj(Sel(Gericht,Gericht.Art = 'Haupt'),[Name,Art])
 
 | Name      | Art   |
@@ -66,10 +70,12 @@ Proj(Sel(Gericht,Gericht.Art = 'Haupt'),[Name,Art])
 | Schnitzel | Haupt |
 | Pizza     | Haupt |
 
-1. Geben Sie eine Liste aller einzelnen Bewertungen aus (Ausgabe: Name des Gerichts, Sterne).
+3. Geben Sie eine Liste aller einzelnen Bewertungen aus (Ausgabe: Name des Gerichts, Sterne).
+
 		SELECT "GERICHT"."Name", "BEWERTUNG"."Sterne" 
 		FROM "BEWERTUNG" 
 		JOIN "GERICHT" ON "BEWERTUNG"."GNr" = "GERICHT"."GNr";
+		
 Proj(Sel(GERICHT X BEWERTUNG, GERICHT.GNr = BERWERTUNG.GNr),[Name,Sterne])
 
 
@@ -81,7 +87,8 @@ Proj(Sel(GERICHT X BEWERTUNG, GERICHT.GNr = BERWERTUNG.GNr),[Name,Sterne])
 | Tomatensuppe | 3      |
 
 
-1. Geben Sie die Namen aller Gerichte aus, die der Student Meier bewertet hat.
+4. Geben Sie die Namen aller Gerichte aus, die der Student Meier bewertet hat.
+
 		SELECT "GERICHT"."Name"
 		FROM "BEWERTUNG" 
 		JOIN "STUDENT" ON "BEWERTUNG"."MatrNr" = "STUDENT"."MatrNr" 
@@ -96,31 +103,36 @@ Proj(Sel(STUDENT X GERICHT X BEWERTUNG, GERICHT.GNr = BEWERTUNG.GNr AND STUDENT.
 | Tomatensuppe |
 
 
-1. Geben Sie alle Bewertungen aus (Name Student, Name Gericht, Sterne), die mindestens vier Sterne haben.
+5. Geben Sie alle Bewertungen aus (Name Student, Name Gericht, Sterne), die mindestens vier Sterne haben.
+
 		SELECT "STUDENT"."Name" AS Studenten_Name, "GERICHT"."Name" AS Name_des_Gerichtes , "BEWERTUNG"."Sterne"
 		FROM "BEWERTUNG" 
 		JOIN "STUDENT" ON "BEWERTUNG"."MatrNr" = "STUDENT"."MatrNr" 
 		JOIN "GERICHT" ON "BEWERTUNG"."GNr" = "GERICHT"."GNr" 
 		WHERE "BEWERTUNG"."Sterne" >= 4;
+		
 Proj(Sel(STUDENT X GERICHT X BEWERTUNG, GERICHT.GNr = BEWERTUNG.GNr AND STUDENT.MatrNr = BEWERTUNG.MatrNr AND BEWERTUNG.Sterne >= 4 ), [STUDENT.NAME, GERICHT.Name, BEWERTUNG.Sterne])
 
 | STUDENT.Name | GERICHT.Name | Sterne |
 | ------------ | ------------ | ------ |
 | Meyer        | Pizza        | 4      |
 
-1. Geben Sie aus, welche Studierenden das Schnitzel bewertet haben.
+6. Geben Sie aus, welche Studierenden das Schnitzel bewertet haben.
+
 		SELECT "STUDENT"."Name" 
 		FROM "BEWERTUNG" 
 		JOIN "STUDENT" ON "BEWERTUNG"."MatrNr" = "STUDENT"."MatrNr" 
 		JOIN "GERICHT" ON "BEWERTUNG"."GNr" = "GERICHT"."GNr" 
 		WHERE "GERICHT"."Name" = 'Schnitzel';
+		
 Proj(Sel(STUDENT X GERICHT X BEWERTUNG, GERICHT.GNr = BEWERTUNG.GNr AND STUDENT.MatrNr = BEWERTUNG.MatrNr AND GERICHT.Name = 'Schnitzel' ), [STUDENT.Name])
 
 | Name  |
 | ----- |
 | Maier |
 
-1. Geben Sie aus, welcher Studierende mindestens zwei Bewertungen abgegeben hat.
+7. Geben Sie aus, welcher Studierende mindestens zwei Bewertungen abgegeben hat.
+
 		SELECT "STUDENT"."Name" 
 		FROM "BEWERTUNG" 
 		JOIN "STUDENT" ON "BEWERTUNG"."MatrNr" = "STUDENT"."MatrNr" 
