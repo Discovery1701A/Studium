@@ -33,49 +33,83 @@ Tabelle GERICHT_
 _  
 Tabelle BEWERTUNG_
 
-|   |   |   |
-|---|---|---|
-|**MatrNr**|**GNr**|**Sterne**|
-|1|2|3|
-|1|4|2|
-|2|1|4|
-|3|3|3|
+|            |         |            |
+| ---------- | ------- | ---------- |
+| **MatrNr** | **GNr** | **Sterne** |
+| 1          | 2       | 3          |
+| 1          | 4       | 2          |
+| 2          | 1       | 4          |
+| 3          | 3       | 3          |
 
   
 Formulieren Sie für die folgenden Aufgaben jeweils einen Ausdruck in der Relationenalgebra und geben Sie zusätzlich jeweils die Ergebnisrelation an:
 
 1. Geben Sie alle Arten von Gerichten aus.
 		SELECT DISTINCT "Art" FROM "GERICHT";
-2. Geben Sie die Namen aller Hauptgerichte (mit der Art „Haupt“) aus.
+| Art     |
+| ------- |
+| Beilage |
+| Vor     |
+| Nach    |
+| Haupt   |
+
+1. Geben Sie die Namen aller Hauptgerichte (mit der Art „Haupt“) aus.
 		SELECT "Name", "Art" FROM "GERICHT" WHERE "Art" = 'Haupt';
-3. Geben Sie eine Liste aller einzelnen Bewertungen aus (Ausgabe: Name des Gerichts, Sterne).
+| Name       | Art    |
+| --------- | ----- |
+| Schnitzel | Haupt |
+| Pizza     | Haupt |
+1. Geben Sie eine Liste aller einzelnen Bewertungen aus (Ausgabe: Name des Gerichts, Sterne).
 		SELECT "GERICHT"."Name", "BEWERTUNG"."Sterne" 
 		FROM "BEWERTUNG" 
 		JOIN "GERICHT" ON "BEWERTUNG"."GNr" = "GERICHT"."GNr";
-4. Geben Sie die Namen aller Gerichte aus, die der Student Meier bewertet hat.
-	1. SELECT "GERICHT"."Name"
+| Name           | Sterne |
+| ------------ | -- |
+| Schnitzel    | 3  |
+| Pizza        | 4  |
+| Reis         | 2  |
+| Tomatensuppe | 3  |
+
+1. Geben Sie die Namen aller Gerichte aus, die der Student Meier bewertet hat.
+		SELECT "GERICHT"."Name"
 		FROM "BEWERTUNG" 
 		JOIN "STUDENT" ON "BEWERTUNG"."MatrNr" = "STUDENT"."MatrNr" 
 		JOIN "GERICHT" ON "BEWERTUNG"."GNr" = "GERICHT"."GNr" 
 		WHERE "STUDENT"."Name" = 'Meier';
-5. Geben Sie alle Bewertungen aus (Name Student, Name Gericht, Sterne), die mindestens vier Sterne haben.
+	| Name           |
+| ------------ |
+| Reis         |
+| Tomatensuppe |
+
+1. Geben Sie alle Bewertungen aus (Name Student, Name Gericht, Sterne), die mindestens vier Sterne haben.
 		SELECT "STUDENT"."Name" AS Studenten_Name, "GERICHT"."Name" AS Name_des_Gerichtes , "BEWERTUNG"."Sterne"
 		FROM "BEWERTUNG" 
 		JOIN "STUDENT" ON "BEWERTUNG"."MatrNr" = "STUDENT"."MatrNr" 
 		JOIN "GERICHT" ON "BEWERTUNG"."GNr" = "GERICHT"."GNr" 
 		WHERE "BEWERTUNG"."Sterne" >= 4;
-6. Geben Sie aus, welche Studierenden das Schnitzel bewertet haben.
+	| Student_Name    | Gericht_Name    | Sterne |
+| ----- | ----- | -- |
+| Meyer | Pizza | 4  |
+1. Geben Sie aus, welche Studierenden das Schnitzel bewertet haben.
 		SELECT "STUDENT"."Name" 
 		FROM "BEWERTUNG" 
 		JOIN "STUDENT" ON "BEWERTUNG"."MatrNr" = "STUDENT"."MatrNr" 
 		JOIN "GERICHT" ON "BEWERTUNG"."GNr" = "GERICHT"."GNr" 
 		WHERE "GERICHT"."Name" = 'Schnitzel';
-7. Geben Sie aus, welcher Studierende mindestens zwei Bewertungen abgegeben hat.
+	| Name    |
+| ----- |
+| Maier |
+1. Geben Sie aus, welcher Studierende mindestens zwei Bewertungen abgegeben hat.
 		SELECT "STUDENT"."Name" 
 		FROM "BEWERTUNG" 
 		JOIN "STUDENT" ON "BEWERTUNG"."MatrNr" = "STUDENT"."MatrNr" 
 		GROUP BY "STUDENT"."Name" 
 		HAVING COUNT("BEWERTUNG"."GNr") >= 2;
+
+|           |     |
+| --------- | --- |
+| Name <br> |     |
+| Meier     |     |
 
   
   
