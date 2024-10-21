@@ -82,7 +82,42 @@ Legen Sie eine Datenbank "Klausuren" mit folgenden Tabellen (inkl. Inhalt) an. W
 Formulieren Sie weiterhin für die folgenden Aufgaben jeweils eine SQL-Anfrage:
 
 1. Geben Sie die Namen aller Studierenden aus.
+
+		`SELECT DISTINCT Name FROM STUDENT;`
+		
 2. Geben Sie die Namen aller Klausuren aus, die um 08:00 Uhr geschrieben werden.
+
+		`SELECT DISTINCT Name, Zeit FROM KLAUSUR WHERE Zeit = '08:00';`
+		
 3. Geben Sie eine Liste aller Erstanmeldungen (nur 1. Versuch) für eine Klausur aus (Ausgabe: Name der Klausur, Name des Studierenden).
+
+		`SELECT DISTINCT KLAUSUR.Name, STUDENT.Name` 
+		`FROM KLAUSUR` 
+		`JOIN ANMELDUNG` 
+		`ON KLAUSUR.KNr = ANMELDUNG.KNr` 
+		`JOIN STUDENT`
+		`ON ANMELDUNG.MatrNr = STUDENT.MAtrNr`
+		`WHERE Versuch = 1;`
+		
 4. Geben Sie die Namen aller Klausuren aus, für die sich die Studentin "Meier" angemeldet hat.
+ 
+		`SELECT DISTINCT KLAUSUR.Name` 
+		`FROM KLAUSUR` 
+		`JOIN ANMELDUNG` 
+		`ON KLAUSUR.KNr = ANMELDUNG.KNr` 
+		`JOIN STUDENT`
+		`ON ANMELDUNG.MatrNr = STUDENT.MAtrNr`
+		`WHERE STUDENT.Name = 'Meier';`
+		
 5. Geben Sie die Namen aller Studierenden aus, die mindestens zwei Klausuren im letzten Versuch (3. Versuch) schreiben.
+
+		`SELECT DISTINCT STUDENT.Name` 
+		`FROM KLAUSUR` 
+		`JOIN ANMELDUNG` 
+		`ON KLAUSUR.KNr = ANMELDUNG.KNr` 
+		`JOIN STUDENT`
+		`ON ANMELDUNG.MatrNr = STUDENT.MatrNr`
+		`WHERE ANMELDUNG.Versuch = 3`
+		`GROUP BY STUDENT.MatrNr` 
+		`HAVING COUNT(ANMELDUNG.KNr) >= 2;`
+		
