@@ -25,13 +25,57 @@ Legen Sie eine Datenbank "Klausuren" mit folgenden Tabellen (inkl. Inhalt) an. W
 
 **_Tabelle ANMELDUNG:_**
 
-|   |   |   |
-|---|---|---|
-|**MatrNr**|**KNr**|**Versuch**|
-|**1**|**2**|**1**|
-|**1**|**4**|**2**|
-|**2**|**1**|**2**|
-|**3**|**3**|**3**|
+|            |         |             |
+| ---------- | ------- | ----------- |
+| **MatrNr** | **KNr** | **Versuch** |
+| **1**      | **2**   | **1**       |
+| **1**      | **4**   | **2**       |
+| **2**      | **1**   | **2**       |
+| **3**      | **3**   | **3**       |
+		`-- Erstellen der Tabelle STUDENT`
+		`CREATE TABLE STUDENT (`
+		    `MatrNr INT PRIMARY KEY,      -- Primärschlüssel`
+		    `Name VARCHAR(10) NOT NULL    -- Name darf nicht leer sein`
+		`);`
+		
+		`-- Daten in die Tabelle STUDENT einfügen`
+		`INSERT INTO STUDENT (MatrNr, Name) VALUES`
+		`(1, 'Meier'),`
+		`(2, 'Meyer'),`
+		`(3, 'Maier');`
+		
+		`-- Erstellen der Tabelle KLAUSUR`
+		`CREATE TABLE KLAUSUR (`
+		    `KNr INT PRIMARY KEY,        -- Primärschlüssel`
+		    `Name VARCHAR(100) NOT NULL, -- Name der Klausur, darf nicht leer sein`
+		    `Datum DATE NOT NULL,        -- Datum der Klausur`
+		    `Zeit TIME NOT NULL          -- Zeit der Klausur`
+		`);`
+		
+		`-- Daten in die Tabelle KLAUSUR einfügen`
+		`INSERT INTO KLAUSUR (KNr, Name, Datum, Zeit) VALUES`
+		`(1, 'Java 1', '2024-01-14', '10:00:00'),`
+		`(2, 'Einführung Inf.', '2024-01-16', '08:00:00'),`
+		`(3, 'Mathematik 1', '2024-01-20', '13:00:00'),`
+		`(4, 'Medieninformatik', '2024-01-20', '08:00:00'),`
+		`(5, 'Audio/Video', '2024-01-28', '15:30:00');`
+		
+		`-- Erstellen der Tabelle ANMELDUNG`
+		`CREATE TABLE ANMELDUNG (`
+		    `MatrNr INT,                  -- Matrikelnummer des Studenten`
+		    `KNr INT,                     -- Klausurnummer`
+		    `Versuch INT,                 -- Versuch (1. Versuch, 2. Versuch, etc.)`
+		    `PRIMARY KEY (MatrNr, KNr),    -- Kombination aus MatrNr und KNr ist der Primärschlüssel`
+		    `FOREIGN KEY (MatrNr) REFERENCES STUDENT(MatrNr), -- Fremdschlüssel, referenziert MatrNr aus STUDENT`
+		    `FOREIGN KEY (KNr) REFERENCES KLAUSUR(KNr)        -- Fremdschlüssel, referenziert KNr aus KLAUSUR`
+		`);`
+		
+		`-- Daten in die Tabelle ANMELDUNG einfügen`
+		`INSERT INTO ANMELDUNG (MatrNr, KNr, Versuch) VALUES`
+		`(1, 2, 1),`
+		`(1, 4, 2),`
+		`(2, 1, 2),`
+		`(3, 3, 3);`
 
 **Aufgabe 2.2**
 
