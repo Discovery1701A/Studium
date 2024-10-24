@@ -4,5 +4,7 @@
   "dataview",
   "obsidian-latex",
   "obsidian-latex-environments",
-  "better-export-pdf"
+  "better-export-pdf",
+  "execute-code",
+  "github-copilot"
 ]
