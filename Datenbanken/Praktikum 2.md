@@ -2,7 +2,6 @@
 
 Legen Sie eine Datenbank "Klausuren" mit folgenden Tabellen (inkl. Inhalt) an. Wählen Sie dabei geeignete Datentypen für die Attribute und beachten Sie die Primär- und Fremdschlüssel. Das Erstellen und Füllen der Tabellen soll komplett über SQL-Anweisungen erfolgen, die im Abgabedokument aufgeführt werden sollen.  
   
-  
 **_Tabelle STUDENT:_**
 
 |   |   |
@@ -88,7 +87,7 @@ Formulieren Sie weiterhin für die folgenden Aufgaben jeweils eine SQL-Anfrage:
 1. Geben Sie die Namen aller Studierenden aus.
 
 ```SQL
-SELECT DISTINCT Name FROM STUDENT;
+SELECT Name FROM STUDENT;
 ```
 
 1. Geben Sie die Namen aller Klausuren aus, die um 08:00 Uhr geschrieben werden.
@@ -124,9 +123,8 @@ AND STUDENT.Name = 'Meier';
 
 ```SQL
 SELECT DISTINCT STUDENT.Name 
-FROM KLAUSUR , ANMELDUNG , STUDENT 
-WHERE KLAUSUR.KNr = ANMELDUNG.KNr 
-AND ANMELDUNG.MatrNr = STUDENT.MatrNr 
+FROM ANMELDUNG , STUDENT 
+WHERE  ANMELDUNG.MatrNr = STUDENT.MatrNr 
 AND Versuch = 3
 GROUP BY STUDENT.MatrNr 
 HAVING COUNT(ANMELDUNG.KNr) >= 2;

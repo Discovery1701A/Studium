@@ -275,16 +275,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Datenbanken/Praktikum 2.md",
+                "file": "Datenbanken/Praktikum 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Praktikum 2"
+              "title": "Praktikum 1"
+            }
+          },
+          {
+            "id": "96556ec2bbd0c0cd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Datenbanken/Praktikum 3.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Praktikum 3"
             }
           }
         ],
-        "currentTab": 19
+        "currentTab": 20
       }
     ],
     "direction": "vertical"
@@ -356,7 +370,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Datenbanken/Praktikum 2.md",
+                "file": "Datenbanken/Praktikum 3.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -366,7 +380,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Rückverweise für Praktikum 2"
+              "title": "Rückverweise für Praktikum 3"
             }
           },
           {
@@ -375,12 +389,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Datenbanken/Praktikum 2.md",
+                "file": "Datenbanken/Praktikum 3.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Ausgehende Links von Praktikum 2 öffnen"
+              "title": "Ausgehende Links von Praktikum 3 öffnen"
             }
           },
           {
@@ -402,10 +416,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Datenbanken/Praktikum 2.md"
+                "file": "Datenbanken/Praktikum 3.md"
               },
               "icon": "lucide-list",
-              "title": "Gliederung von Praktikum 2"
+              "title": "Gliederung von Praktikum 3"
             }
           }
         ],
@@ -429,11 +443,14 @@
       "copilot:Copilot Chat": false
     }
   },
-  "active": "36f2e387c243f35a",
+  "active": "96556ec2bbd0c0cd",
   "lastOpenFiles": [
-    "Datenbanken/Vorlesung 24.10.2024.md",
-    "Datenbanken/Praktikum 2.md",
     "Datenbanken/Praktikum 1.md",
+    "Datenbanken/Praktikum 3.md",
+    "Datenbanken/Abgabe 2.md",
+    "Gamification/Annas Ideen.md",
+    "Datenbanken/Praktikum 2.md",
+    "Datenbanken/Vorlesung 24.10.2024.md",
     "Datenbanken/Vorlesung 14.10.md",
     "Gamification/23.10.2024.md",
     "Gamification/16.10.2024.md",
@@ -444,7 +461,6 @@
     "Gamification/09.10.2024.md",
     "Datenbanken/Vorlesung 2 30.09 schön.md",
     "Datenbanken/Vorlesung 2 30.09.md",
-    "Gamification/Annas Ideen.md",
     "Modellierung/Vorlesung 2 30.09.md",
     "Modellierung/Unbenannt.md",
     "Gamification",
@@ -458,8 +474,6 @@
     "Modellierung/Factory Method.md",
     "Modellierung/Decorator.md",
     "Modellierung/Protokol-Zustandsautomat.md",
-    "Modellierung/Strategy.md",
-    "Modellierung/Entwurfsmuster.md",
     "Modellierung"
   ]
 }
