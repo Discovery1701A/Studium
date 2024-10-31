@@ -10,41 +10,41 @@ Formulieren Sie für folgende Anfragen SQL-Anweisungen:
 1. Geben Sie aus, wie viele Module in der Datenbank gespeichert sind.
 
 ```SQL
-SELECT DISTINCT COUNT( mid ) AS Anzahl FROM modul;
+SELECT DISTINCT COUNT( MID ) AS Anzahl FROM Modul;
 ```
 
 2. Geben Sie alle Module (Name) aus, die weniger als 4 ECTS-Punkte haben.
 
 ```SQL
-SELECT DISTINCT name FROM modul WHERE ects > 4;
+SELECT DISTINCT Name FROM Modul WHERE ETCS > 4;
 ```
 3. Geben Sie alle Module aus, in denen eine Klausur als Prüfung möglich ist.  
 
 ```SQL
-SELECT DISTINCT name FROM modul WHERE pruefung LIKE '%Klausur%';
+SELECT DISTINCT Name FROM Modul WHERE Pruefung LIKE '%Klausur%';
 ```
     
 4. Geben Sie die Namen der Module aus, bei denen als Modulverantwortlicher "F. Rump" angegeben ist.  
 
 ```SQL
- SELECT DISTINCT modul.Name FROM person , modul
-WHERE person.pid = modul.pid AND person.name = 'F. Rump';
+ SELECT DISTINCT Modul.Name FROM Person , Modul
+WHERE Person.PID = Modul.PID AND Person.Name = 'F. Rump';
 ```
     
 5. Geben Sie alle Studiengänge mit den zugehörigen Zertifikaten aus (Ausgabe: Studiengang, Zertifikat).
 
 ```SQL 
-SELECT DISTINCT studiengang.Name As Studiengangname, zertifikat.Name AS Zertifikatname
-FROM studiengang, zertifikat, zertifikatzuordnung
-WHERE studiengang.sid = zertifikatzuordnung.sid AND zertifikat.zid = zertifikatzuordnung.zid;
+SELECT DISTINCT Studiengang.Name As Studiengangname, Zertifikat.Name AS Zertifikatsname
+FROM Studiengang, Zertifikat, Zertifikatzuordnung
+WHERE Studiengang.SID = Zertifikatzuordnung.SID AND Zertifikat.ZID = Zertifikatzuordnung.ZID;
 ```
 
 6. Geben Sie alle Lehrenden und die Veranstaltungen aus, die sie unterrichten.
 
 ```SQL
  SELECT DISTINCT Veranstaltung.Name AS Veranstaltungsname, Person.Name AS Lehrendername
-FROM Veranstaltung, Person, lehrende
-WHERE Veranstaltung.vid = lehrende.vid AND Person.pid = lehrende.pid;
+FROM Veranstaltung, Person, Lehrende
+WHERE Veranstaltung.VID = Lehrende.VID AND Person.PID = Lehrende.PID;
 ```
 
 7. Geben Sie alle Module aus, sofern die enthaltenen Veranstaltung in Summe mehr als vier SWS haben.  
@@ -65,23 +65,73 @@ HAVING SUM(Veranstaltung.SWS) > 4;
 
 ```SQL
 SELECT DISTINCT Veranstaltung.Name AS Veranstaltungsname
+FROM Veranstaltung, Lehrende
+WHERE Veranstaltung.VID = lehrende.VID
 
-FROM Veranstaltung, lehrende
+GROUP BY Veranstaltung.VID
 
-WHERE Veranstaltung.vid = lehrende.vid
-
-GROUP BY Veranstaltung.vid
-
-HAVING COUNT(lehrende.pid) >= 2;
+HAVING COUNT(lehrende.PID) >= 2;
 ```
     
 9. Geben Sie alle Studiengänge absteigend nach der Anzahl der "reinen" Wahlpflichtmodule, die somit keinem Zertifikat zugeordnet sind, aus.
+
+```SQL
+SELECT Name AS Studiengang,
+(SELECT COUNT(*)
+FROM Modulzuordnung
+WHERE SID = Studiengang.SID
+AND MID NOT IN (SELECT MID FROM Zertifikatsmodul)) AS Anzahl_Wahlpflichtmodule
+FROM Studiengang
+ORDER BY Anzahl_Wahlpflichtmodule DESC;
+```
+
 10. Geben Sie zu jedem Studiengang und jedem Zertifikat in dem jeweiligen Studiengang die Anzahl der zugehörigen Module aus, wobei die Studiengänge und Zertifikate alphabetisch sortiert sein sollen.
+
+```SQL 
+
+SELECT (SELECT Name FROM Studiengang WHERE SID = Zertifikatzuordnung.SID) AS Studiengang,
+(SELECT Name FROM Zertifikat WHERE ZID = Zertifikatzuordnung.ZID) AS Zertifikat,
+(SELECT COUNT(*)
+FROM Zertifikatsmodul
+WHERE Zertifikatsmodul.ZID = Zertifikatzuordnung.ZID
+AND Zertifikatsmodul.MID IN (SELECT MID FROM Modulzuordnung WHERE SID = Zertifikatzuordnung.SID)
+) AS Anzahl_Module
+FROM Zertifikatzuordnung
+ORDER BY Studiengang ASC, Zertifikat ASC;
+
+```
+
 11. Geben Sie zu jedem Studiengang die Anzahl der Zertifikate aus, sofern der Studiengang mehr als drei Zertifikate hat.
+
+```SQL 
+
+```
+
 12. Geben Sie die Studiengänge absteigend nach den daran beteiligten, unterschiedlichen Lehrenden sortiert aus.
+
+```SQL  
+
+```
+
 13. Geben Sie für alle Lehrenden aus, wie viele Veranstaltungen sie lehren.
+
+```SQL 
+
+```
+
 14. Geben Sie die Lehrbeauftragten aus, die nur genau eine Veranstaltung anbieten.  
-    
+
+```SQL 
+
+```  
+
+
+
 15. Geben Sie für jeden Studiengang die Semester (sofern ungleich NULL) aufsteigend sortiert mit der Summe der ECTS der enthaltenen Module an.
+
+```SQL
+
+``` 
+
 
 Einen Ansatz zur Formulierung von SQL-Anfragen finden Sie u.a. in den Vorlesungsunterlagen am Ende von Kapitel "Gruppierungen in SQL".
