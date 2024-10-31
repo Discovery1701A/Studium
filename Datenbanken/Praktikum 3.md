@@ -51,13 +51,9 @@ WHERE Veranstaltung.VID = Lehrende.VID AND Person.PID = Lehrende.PID;
 
 ```SQL
     SELECT Modul.Name AS Modulname, SUM(Veranstaltung.SWS) AS Gesamt_SWS
-
 FROM Modul ,Veranstaltung
-
 WHERE Modul.MID = Veranstaltung.MID
-
 GROUP BY Modul.MID
-
 HAVING SUM(Veranstaltung.SWS) > 4;
 ```
 
@@ -67,9 +63,7 @@ HAVING SUM(Veranstaltung.SWS) > 4;
 SELECT DISTINCT Veranstaltung.Name AS Veranstaltungsname
 FROM Veranstaltung, Lehrende
 WHERE Veranstaltung.VID = lehrende.VID
-
 GROUP BY Veranstaltung.VID
-
 HAVING COUNT(lehrende.PID) >= 2;
 ```
     
@@ -104,25 +98,55 @@ ORDER BY Studiengang ASC, Zertifikat ASC;
 11. Geben Sie zu jedem Studiengang die Anzahl der Zertifikate aus, sofern der Studiengang mehr als drei Zertifikate hat.
 
 ```SQL 
-
+SELECT DISTINCT (SELECT Name FROM Studiengang WHERE SID = Zertifikatzuordnung.SID) AS Studiengang,
+COUNT(*) AS Anzahl_Zertifikate
+FROM Zertifikatzuordnung
+GROUP BY Zertifikatzuordnung.SID
+HAVING COUNT(*) > 3
+ORDER BY Studiengang;
 ```
 
 12. Geben Sie die Studiengänge absteigend nach den daran beteiligten, unterschiedlichen Lehrenden sortiert aus.
 
 ```SQL  
+SELECT Name AS Studiengang,
 
+(SELECT COUNT(DISTINCT Lehrende.PID)
+
+FROM Lehrende
+
+WHERE Lehrende.VID IN (SELECT Veranstaltung.VID
+
+FROM Veranstaltung
+
+WHERE Veranstaltung.MID IN (SELECT Modulzuordnung.MID
+
+FROM Modulzuordnung
+
+WHERE Modulzuordnung.SID = Studiengang.SID))) AS Anzahl_Lehrende
+
+FROM Studiengang
+
+ORDER BY Anzahl_Lehrende DESC;
 ```
 
 13. Geben Sie für alle Lehrenden aus, wie viele Veranstaltungen sie lehren.
 
 ```SQL 
-
+SELECT Person.Name AS Lehrendername, COUNT(Lehrende.VID) AS Anzahl_Veranstaltungen
+FROM Person, Lehrende
+WHERE Person.PID = lehrende.PID
+GROUP BY Person.PID;
 ```
 
 14. Geben Sie die Lehrbeauftragten aus, die nur genau eine Veranstaltung anbieten.  
 
 ```SQL 
-
+SELECT Person.Name AS Lehrendername, COUNT(Lehrende.VID) AS Anzahl_Veranstaltungen
+FROM Person, Lehrende
+WHERE Person.PID = lehrende.PID
+GROUP BY Person.PID
+HAVING COUNT(Lehrende.VID) = 1;
 ```  
 
 
