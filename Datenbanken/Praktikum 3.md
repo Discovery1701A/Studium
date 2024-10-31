@@ -154,7 +154,13 @@ HAVING COUNT(Lehrende.VID) = 1;
 15. Geben Sie für jeden Studiengang die Semester (sofern ungleich NULL) aufsteigend sortiert mit der Summe der ECTS der enthaltenen Module an.
 
 ```SQL
-
+SELECT DISTINCT Studiengang.Name AS Studiengangname, Modulzuordnung.Semester AS Semester, Sum(Modul.ECTS) AS ECTS
+FROM Studiengang, Modulzuordnung, Modul
+WHERE Modulzuordnung.SID = Studiengang.SID
+AND Modulzuordnung.MID = Modul.MID
+AND Modulzuordnung.Semester is NOT NULL
+GROUP BY Studiengang.SID, Modulzuordnung.Semester
+ORDER BY Sum(Modul.ECTS) ASC;
 ``` 
 
 
