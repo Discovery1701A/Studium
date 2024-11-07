@@ -70,38 +70,38 @@ HAVING COUNT(lehrende.PID) >= 2;
 9. Geben Sie alle Studiengänge absteigend nach der Anzahl der "reinen" Wahlpflichtmodule, die somit keinem Zertifikat zugeordnet sind, aus.
 
 ```SQL
-SELECT DISTINCT Studiengang.Name AS Studiengang,
-(SELECT DISTINCT COUNT(*)
-FROM Modulzuordnung
-WHERE Modulzuordnung.SID = Studiengang.SID
-AND Modulzuordnung.Semester is  NULL)
+SELECT DISTINCT Studiengang.Name AS Studiengang, COUNT(*)
 AS Anzahl_Wahlpflichtmodule
-FROM Studiengang
+FROM Studiengang, Modulzuordnung
+WHERE Modulzuordnung.SID = Studiengang.SID
+AND Modulzuordnung.Semester is  NULL
+GROUP BY Studiengang.Name
 ORDER BY Anzahl_Wahlpflichtmodule DESC;
 ```
 
 10. Geben Sie zu jedem Studiengang und jedem Zertifikat in dem jeweiligen Studiengang die Anzahl der zugehörigen Module aus, wobei die Studiengänge und Zertifikate alphabetisch sortiert sein sollen.
 
 ```SQL 
-SELECT (SELECT Studiengang.Name FROM Studiengang WHERE SID = Zertifikatzuordnung.SID) AS Studiengang,
-(SELECT Zertifikat.Name FROM Zertifikat WHERE ZID = Zertifikatzuordnung.ZID) AS Zertifikat,
-(SELECT COUNT(*)
-FROM Zertifikatsmodul, Modulzuordnung
-WHERE Zertifikatsmodul.ZID = Zertifikatzuordnung.ZID
+SELECT Studiengang.Name AS Studiengang,
+Zertifikat.Name AS Zertifikat, COUNT(*) AS Anzahl_Module
+FROM Zertifikatzuordnung, Zertifikatsmodul, Modulzuordnung, Studiengang,Zertifikat
+WHERE Studiengang.SID = Zertifikatzuordnung.SID
+AND Zertifikat.ZID = Zertifikatzuordnung.ZID
+AND Zertifikatsmodul.ZID = Zertifikatzuordnung.ZID
 AND Modulzuordnung.SID = Zertifikatzuordnung.SID
 AND Zertifikatsmodul.MID = Modulzuordnung.MID
-) AS Anzahl_Module
-FROM Zertifikatzuordnung
+GROUP BY (Studiengang.Name, Zertifikat.Name)
 ORDER BY Studiengang ASC, Zertifikat ASC;
 ```
 
 11. Geben Sie zu jedem Studiengang die Anzahl der Zertifikate aus, sofern der Studiengang mehr als drei Zertifikate hat.
 
 ```SQL 
-SELECT (SELECT Studiengang.Name FROM Studiengang WHERE SID = Zertifikatzuordnung.SID) AS Studiengang,
+SELECT Studiengang.Name  AS Studiengang,
 COUNT(*) AS Anzahl_Zertifikate
-FROM Zertifikatzuordnung
-GROUP BY Zertifikatzuordnung.SID
+FROM Zertifikatzuordnung, Studiengang
+WHERE Studiengang.SID = Zertifikatzuordnung.SID
+GROUP BY Zertifikatzuordnung.SID, Studiengang.Name
 HAVING COUNT(*) > 3
 ORDER BY Studiengang;
 ```
@@ -109,13 +109,12 @@ ORDER BY Studiengang;
 12. Geben Sie die Studiengänge absteigend nach den daran beteiligten, unterschiedlichen Lehrenden sortiert aus.
 
 ```SQL  
-SELECT Studiengang.Name AS Studiengang,
-(SELECT COUNT(DISTINCT Lehrende.PID)
-FROM Lehrende, Veranstaltung, Modulzuordnung
+SELECT Studiengang.Name AS Studiengang,COUNT(DISTINCT Lehrende.PID)AS Anzahl_Lehrende
+FROM Lehrende, Veranstaltung, Modulzuordnung,Studiengang
 WHERE Lehrende.VID = Veranstaltung.VID
 AND Veranstaltung.MID = Modulzuordnung.MID
-AND Modulzuordnung.SID = Studiengang.SID) AS Anzahl_Lehrende
-FROM Studiengang
+AND Modulzuordnung.SID = Studiengang.SID
+GROUP BY  Studiengang.Name
 ORDER BY Anzahl_Lehrende DESC;
 ```
 
