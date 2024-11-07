@@ -82,13 +82,13 @@ ORDER BY Anzahl_Wahlpflichtmodule DESC;
 10. Geben Sie zu jedem Studiengang und jedem Zertifikat in dem jeweiligen Studiengang die Anzahl der zugehörigen Module aus, wobei die Studiengänge und Zertifikate alphabetisch sortiert sein sollen.
 
 ```SQL 
-
 SELECT (SELECT Name FROM Studiengang WHERE SID = Zertifikatzuordnung.SID) AS Studiengang,
 (SELECT Name FROM Zertifikat WHERE ZID = Zertifikatzuordnung.ZID) AS Zertifikat,
 (SELECT COUNT(*)
-FROM Zertifikatsmodul
+FROM Zertifikatsmodul, Modulzuordnung
 WHERE Zertifikatsmodul.ZID = Zertifikatzuordnung.ZID
-AND Zertifikatsmodul.MID IN (SELECT MID FROM Modulzuordnung WHERE SID = Zertifikatzuordnung.SID)
+AND Modulzuordnung.SID = Zertifikatzuordnung.SID
+AND Zertifikatsmodul.MID = Modulzuordnung.MID
 ) AS Anzahl_Module
 FROM Zertifikatzuordnung
 ORDER BY Studiengang ASC, Zertifikat ASC;
@@ -110,23 +110,14 @@ ORDER BY Studiengang;
 
 ```SQL  
 SELECT Name AS Studiengang,
-
 (SELECT COUNT(DISTINCT Lehrende.PID)
-
 FROM Lehrende
-
 WHERE Lehrende.VID IN (SELECT Veranstaltung.VID
-
 FROM Veranstaltung
-
 WHERE Veranstaltung.MID IN (SELECT Modulzuordnung.MID
-
 FROM Modulzuordnung
-
 WHERE Modulzuordnung.SID = Studiengang.SID))) AS Anzahl_Lehrende
-
 FROM Studiengang
-
 ORDER BY Anzahl_Lehrende DESC;
 ```
 
