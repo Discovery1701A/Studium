@@ -133,7 +133,8 @@ GROUP BY Person.PID;
 SELECT Person.Name AS Lehrendername, COUNT(Lehrende.VID) AS Anzahl_Veranstaltungen
 FROM Person, Lehrende
 WHERE Person.PID = Lehrende.PID
-GROUP BY Person.PID
+AND Person.Lehrbeauftragter = True
+GROUP BY Person.PID, Person.Name
 HAVING COUNT(Lehrende.VID) = 1;
 ```  
 
