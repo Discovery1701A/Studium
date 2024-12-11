@@ -106,29 +106,69 @@ AND Country.Code NOT IN (SELECT GEO_DESERT.Country FROM GEO_DESERT);
 11. Geben Sie die Namen aller Länder aus, für die bei jeder Stadt dieses Landes keine Einwohnerzahl (also NULL) eingetragen ist.
   
   ```SQL
-  
+SELECT Country.Name
+FROM Country
+WHERE Country.Code NOT IN (
+SELECT DISTINCT City.Country
+FROM City
+WHERE City.Population IS NOT NULL);
   ```
   
 12. Geben Sie die Namen aller Länder aus, deren Hauptstadt weniger als 500000 Einwohner hat und für die mehr als fünf Städte in der Datenbank eingetragen sind.
 
  ```SQL
-  
+SELECT Country.Name
+FROM Country
+WHERE Country.Code IN (SELECT City.Country
+FROM City
+WHERE City.Population < 500000)
+AND Country.Code IN (SELECT City.Country
+FROM City
+GROUP BY City.Country
+HAVING COUNT(*) < 5);
   ```
   
 13. Geben Sie die Namen der Länder an, die an kein Meer (sea) grenzen und deren Hauptstadt an einem Fluss liegt (located).
 
  ```SQL
-  
+SELECT Country.Name
+FROM Country
+WHERE Country.Code NOT IN (SELECT DISTINCT Located.Country
+FROM Located
+WHERE Located.Sea is not Null)
+AND Country.Capital IN (SELECT Located.City
+FROM Located
+WHERE Located.River is not Null);
   ```
   
 14. Geben Sie alphabetisch sortiert die Namen aller Städte aus, deren Breitengrad maximal einen Grad Differenz zur geographischen Breite von Berlin hat (Berlin selbst soll sich im Ergebnis befinden).
 
  ```SQL
-  
+SELECT City.Name
+FROM City
+WHERE City.latitude >
+(SELECT City.latitude
+FROM City
+WHERE City.Name = 'Berlin') - 1
+AND City.latitude <
+(SELECT City.latitude
+FROM City
+WHERE City.Name = 'Berlin') + 1;
   ```
   
 15. Geben Sie einmalig die Namen der Länder aus, von denen eine Stadt am Atlantik (Atlantic Ocean) und eine Stadt am Mittelmeer (Mediterranean Sea) liegen.
 
  ```SQL
-  
+SELECT Country.Name
+FROM Country
+WHERE Country.Code IN (SELECT Located.Country
+FROM Located
+WHERE Located.Sea IS NOT NULL
+GROUP BY Located.Country
+HAVING COUNT(*) = 1)
+AND Country.Code IN (SELECT Located.Country
+FROM Located
+WHERE Located.River IS NOT NULL
+GROUP BY Located.Country
+HAVING COUNT(*) = 1);
   ```
