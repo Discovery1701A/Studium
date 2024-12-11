@@ -53,9 +53,9 @@ ORDER BY country.name ASC;
 SELECT Name AS Country_Name,
 ROUND((Area / (SELECT SUM(Area)
 FROM Country, Encompasses
-WHERE Country.code = Encompasses.country AND Continent = 'Europe')) * 100, 2) AS Durchschnittsfläche_Europa_Area
+WHERE Country.code = Encompasses.Country AND Encompasses.Continent = 'Europe')) * 100, 2) AS Durchschnittsfläche_Europa_Area
 FROM Country, Encompasses
-WHERE Country.code = Encompasses.country AND Continent = 'Europe'
+WHERE Country.code = Encompasses.Country AND Encompasses.Continent = 'Europe'
 ORDER BY Durchschnittsfläche_Europa_Area DESC;
 ```
 
@@ -88,7 +88,8 @@ SELECT Country.Name, Country.Capital,
 (SELECT City.Population
 FROM City
 WHERE City.Name = Country.Capital AND City.Country = Country.Code) AS Hauptstadtbevölkerung
-FROM Country
+FROM Country,Encompasses
+WHERE Encompasses.Continent LIKE '%America%'
 ORDER BY Country.Name DESC;
 ```
 
@@ -125,7 +126,7 @@ WHERE City.Population < 500000)
 AND Country.Code IN (SELECT City.Country
 FROM City
 GROUP BY City.Country
-HAVING COUNT(*) < 5);
+HAVING COUNT(*) > 5);
   ```
   
 13. Geben Sie die Namen der Länder an, die an kein Meer (sea) grenzen und deren Hauptstadt an einem Fluss liegt (located).
