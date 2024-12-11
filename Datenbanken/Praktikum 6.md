@@ -48,12 +48,87 @@ ORDER BY country.name ASC;
 ```
 
 6. Geben Sie für jedes Land in Europa in Prozent an, welchen Anteil die Landesfläche an der Fläche von Gesamteuropa hat (Ausgabe: Name des Landes, Prozent).
-2. Geben Sie für jedes Land die Anzahl der Städte mit mehr als 5000000 Einwohner aus (Ausgabe: Name des Landes, Anzahl).
-3. Geben Sie die Namen aller Länder aus, für die eine Stadt keine Einwohnerzahl (somit NULL) vorweist.
-4. Geben Sie den Ländernamen, den Namen der zugehörigen Hauptstadt und die Einwohnerzahl dieser Hauptstadt aller Länder in Amerika (Kontinent) sortiert nach den Ländernamen aus.
-5. Geben Sie die Namen aller Länder in Europa aus, für die weder ein Fluss (GEO_RIVER) noch eine Wüste (GEO_DESERT) eingetragen sind.
-6. Geben Sie die Namen aller Länder aus, für die bei jeder Stadt dieses Landes keine Einwohnerzahl (also NULL) eingetragen ist.
-7. Geben Sie die Namen aller Länder aus, deren Hauptstadt weniger als 500000 Einwohner hat und für die mehr als fünf Städte in der Datenbank eingetragen sind.
-8. Geben Sie die Namen der Länder an, die an kein Meer (sea) grenzen und deren Hauptstadt an einem Fluss liegt (located).
-9. Geben Sie alphabetisch sortiert die Namen aller Städte aus, deren Breitengrad maximal einen Grad Differenz zur geographischen Breite von Berlin hat (Berlin selbst soll sich im Ergebnis befinden).
-10. Geben Sie einmalig die Namen der Länder aus, von denen eine Stadt am Atlantik (Atlantic Ocean) und eine Stadt am Mittelmeer (Mediterranean Sea) liegen.
+
+```SQL
+SELECT Name AS Country_Name,
+ROUND((Area / (SELECT SUM(Area)
+FROM Country, Encompasses
+WHERE Country.code = Encompasses.country AND Continent = 'Europe')) * 100, 2) AS Durchschnittsfläche_Europa_Area
+FROM Country, Encompasses
+WHERE Country.code = Encompasses.country AND Continent = 'Europe'
+ORDER BY Durchschnittsfläche_Europa_Area DESC;
+```
+
+7. Geben Sie für jedes Land die Anzahl der Städte mit mehr als 5000000 Einwohner aus (Ausgabe: Name des Landes, Anzahl).
+
+```SQL
+SELECT Country.Name AS Name_des_Landes, count(*) AS Anzahl
+FROM City, Country
+WHERE City.Country = Country.Code
+AND City.Population > 5000000
+GROUP BY Country.Name
+ORDER BY Anzahl DESC
+```
+
+8. Geben Sie die Namen aller Länder aus, für die eine Stadt keine Einwohnerzahl (somit NULL) vorweist.
+
+```SQL
+SELECT Country.Name
+FROM Country
+WHERE Country.code IN
+(SELECT City.Country
+FROM City
+WHERE City.Population IS NULL);
+```
+
+9. Geben Sie den Ländernamen, den Namen der zugehörigen Hauptstadt und die Einwohnerzahl dieser Hauptstadt aller Länder in Amerika (Kontinent) sortiert nach den Ländernamen aus.
+
+```SQL
+SELECT Country.Name, Country.Capital,
+(SELECT City.Population
+FROM City
+WHERE City.Name = Country.Capital AND City.Country = Country.Code) AS Hauptstadtbevölkerung
+FROM Country
+ORDER BY Country.Name DESC;
+```
+
+10. Geben Sie die Namen aller Länder in Europa aus, für die weder ein Fluss (GEO_RIVER) noch eine Wüste (GEO_DESERT) eingetragen sind.
+
+```SQL
+SELECT Country.Name
+FROM Country, Encompasses
+WHERE Country.Code = Encompasses.Country
+AND Encompasses.Continent = 'Europe'
+AND Country.Code NOT IN (SELECT GEO_RIVER.Country FROM GEO_RIVER)
+AND Country.Code NOT IN (SELECT GEO_DESERT.Country FROM GEO_DESERT);
+```
+
+11. Geben Sie die Namen aller Länder aus, für die bei jeder Stadt dieses Landes keine Einwohnerzahl (also NULL) eingetragen ist.
+  
+  ```SQL
+  
+  ```
+  
+12. Geben Sie die Namen aller Länder aus, deren Hauptstadt weniger als 500000 Einwohner hat und für die mehr als fünf Städte in der Datenbank eingetragen sind.
+
+ ```SQL
+  
+  ```
+  
+13. Geben Sie die Namen der Länder an, die an kein Meer (sea) grenzen und deren Hauptstadt an einem Fluss liegt (located).
+
+ ```SQL
+  
+  ```
+  
+14. Geben Sie alphabetisch sortiert die Namen aller Städte aus, deren Breitengrad maximal einen Grad Differenz zur geographischen Breite von Berlin hat (Berlin selbst soll sich im Ergebnis befinden).
+
+ ```SQL
+  
+  ```
+  
+15. Geben Sie einmalig die Namen der Länder aus, von denen eine Stadt am Atlantik (Atlantic Ocean) und eine Stadt am Mittelmeer (Mediterranean Sea) liegen.
+
+ ```SQL
+  
+  ```
