@@ -28,7 +28,7 @@ AND city.country = country.code;
 4. Geben Sie die Kürzel aller Länder aus, in denen es mindestens zwei Städte mit mehr als 5000000 Einwohner gibt.
   
   ```SQL
-SELECT country, count(*) AS Anzahl
+SELECT country
 FROM city
 WHERE population > 5000000
 GROUP BY country
@@ -67,7 +67,7 @@ FROM City, Country
 WHERE City.Country = Country.Code
 AND City.Population > 5000000
 GROUP BY Country.Name
-ORDER BY Anzahl DESC
+ORDER BY Anzahl DESC;
 ```
 
 8. Geben Sie die Namen aller Länder aus, für die eine Stadt keine Einwohnerzahl (somit NULL) vorweist.
@@ -89,7 +89,8 @@ SELECT Country.Name, Country.Capital,
 FROM City
 WHERE City.Name = Country.Capital AND City.Country = Country.Code) AS Hauptstadtbevölkerung
 FROM Country,Encompasses
-WHERE Encompasses.Continent LIKE '%America%'
+WHERE Country.Code = Encompasses.Country
+AND Encompasses.Continent LIKE '%America%'
 ORDER BY Country.Name DESC;
 ```
 
@@ -137,9 +138,10 @@ FROM Country
 WHERE Country.Code NOT IN (SELECT DISTINCT Located.Country
 FROM Located
 WHERE Located.Sea is not Null)
-AND Country.Capital IN (SELECT Located.City
+AND Country.Capital IN (SELECT DISTINCT Located.City
 FROM Located
-WHERE Located.River is not Null);
+WHERE Located.River is not Null
+AND Located.Country = Country.Code);
   ```
   
 14. Geben Sie alphabetisch sortiert die Namen aller Städte aus, deren Breitengrad maximal einen Grad Differenz zur geographischen Breite von Berlin hat (Berlin selbst soll sich im Ergebnis befinden).
@@ -154,22 +156,23 @@ WHERE City.Name = 'Berlin') - 1
 AND City.latitude <
 (SELECT City.latitude
 FROM City
-WHERE City.Name = 'Berlin') + 1;
+WHERE City.Name = 'Berlin') + 1
+ORDER BY City.Name ASC;
   ```
   
 15. Geben Sie einmalig die Namen der Länder aus, von denen eine Stadt am Atlantik (Atlantic Ocean) und eine Stadt am Mittelmeer (Mediterranean Sea) liegen.
 
  ```SQL
-SELECT Country.Name
+SELECT DISTINCT Country.Name
 FROM Country
 WHERE Country.Code IN (SELECT Located.Country
 FROM Located
-WHERE Located.Sea IS NOT NULL
+WHERE Located.Sea = 'Atlantic Ocean'
 GROUP BY Located.Country
 HAVING COUNT(*) = 1)
 AND Country.Code IN (SELECT Located.Country
 FROM Located
-WHERE Located.River IS NOT NULL
+WHERE Located.Sea = 'Mediterranean Sea'
 GROUP BY Located.Country
 HAVING COUNT(*) = 1);
   ```
