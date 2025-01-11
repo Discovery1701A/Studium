@@ -35,7 +35,7 @@ erDiagram
     Dozent ||--|| Fachbereich : "ist Dekan von"
 
 ```
-
+das neu machen
   
 
   

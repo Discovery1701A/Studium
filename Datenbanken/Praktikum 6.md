@@ -1,5 +1,6 @@
 Geben Sie für die unten stehenden DB-Anfragen jeweils einen SQL-Select-Ausdruck bezogen auf die Mondial-Datenbank (mondial.sql im Ordner [Datenbanken](https://moodle.hs-emden-leer.de/moodle/mod/url/view.php?id=323657 "Datenbanken")) an. Die Zusammenhänge der Tabellen sind anhand des [ER-Modells](https://ipfs.ddnss.org/ipfs/QmY9aPngBfXMot1JCsnnWsxVdaguTebigQVf4vnpsTauUF) ersichtlich.
 ![[QmY9aPngBfXMot1JCsnnWsxVdaguTebigQVf4vnpsTauUF 1.pdf]]
+
 1. Geben Sie alle Städte mit mehr als 9000000 Einwohnern aus.
 
 ```SQL
@@ -51,7 +52,7 @@ ORDER BY country.name ASC;
 
 ```SQL
 SELECT Name AS Country_Name,
-ROUND((Area / (SELECT SUM(Area)
+ROUND(((Area* Encompasses.Percentage /100) / (SELECT SUM(Area * Encompasses.Percentage /100)
 FROM Country, Encompasses
 WHERE Country.code = Encompasses.Country AND Encompasses.Continent = 'Europe')) * 100, 2) AS Durchschnittsfläche_Europa_Area
 FROM Country, Encompasses
@@ -91,7 +92,7 @@ WHERE City.Name = Country.Capital AND City.Country = Country.Code) AS Hauptstadt
 FROM Country,Encompasses
 WHERE Country.Code = Encompasses.Country
 AND Encompasses.Continent LIKE '%America%'
-ORDER BY Country.Name DESC;
+ORDER BY Country.Name ;
 ```
 
 10. Geben Sie die Namen aller Länder in Europa aus, für die weder ein Fluss (GEO_RIVER) noch eine Wüste (GEO_DESERT) eingetragen sind.
