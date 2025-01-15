@@ -25,7 +25,9 @@ CREATE TABLE Kunde (
   Knr INTEGER PRIMARY KEY,
   Name VARCHAR(6),
   Betreuer INTEGER,
-  CONSTRAINT FK_Kunde FOREIGN KEY (Betreuer) REFERENCES Verkaeufer(Vnr)
+  CONSTRAINT FK_Kunde 
+  FOREIGN KEY (Betreuer) 
+  REFERENCES Verkaeufer(Vnr)
 );
 ```
 

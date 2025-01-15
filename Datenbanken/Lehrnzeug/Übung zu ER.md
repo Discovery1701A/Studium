@@ -154,3 +154,10 @@ Ergänzen Sie ggf. fehlende Angaben durch kommentierte Annahmen.
 
 • **2 Punkte**: Ergänzung und Begründung fehlender Angaben (falls notwendig).
 
+
+
+Stadt({Name,Breite , Länge }, liegt in)
+Organisation({Name}, Gründung Daten ,beheimatet)
+Land({Name}, Einwohner, Hauptstadt)
+Organisationsmitglieder({Land,Organisation}, Status)
+Angrenzung({Land1, Land2}, Länge)

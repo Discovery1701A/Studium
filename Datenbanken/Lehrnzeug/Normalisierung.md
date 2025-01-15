@@ -65,7 +65,7 @@
 #### **5. Zweite Normalform (2NF)**
 - **Definition**: Tabelle ist in 1NF, und alle Nichtschlüsselattribute sind voll funktional abhängig von jedem Schlüsselkandidaten.
 - **Beispiel**: Tabelle **Projektmitarbeit** (nicht in 2NF):
-  | **MiNr** | **ProNr** | **Name**  | **AbtNr** | **Abteilung** | **Projekt** |
+| **MiNr** | **ProNr** | **Name**  | **AbtNr** | **Abteilung** | **Projekt** |
   |----------|-----------|-----------|-----------|---------------|-------------|
 
   - Umwandlung in 2NF:
@@ -78,7 +78,7 @@
 | 3    | Uwe   | 43    | GUI       |
 
 
-    - Tabelle **Projekt**:
+- Tabelle **Projekt**:
     
 | ProNr | Projekt |
 |-------|---------|
@@ -87,7 +87,7 @@
 | 3     | Frame   |
 
 
-    - Tabelle **Projektmitarbeit**:
+- Tabelle **Projektmitarbeit**:
      
 | MiNr | ProNr |
 |------|-------|
@@ -119,7 +119,7 @@
 | 43    | GUI       |
 
 
-    - Tabelle **Mitarbeiter**:
+- Tabelle **Mitarbeiter**:
     
 | MiNr | Name  | AbtNr |
 |------|-------|-------|

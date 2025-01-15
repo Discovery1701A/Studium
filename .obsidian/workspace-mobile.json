@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Datenbanken/Lehrnzeug/Übungsaufgaben.md",
-                "mode": "preview",
+                "file": "Datenbanken/Lehrnzeug/Übung SQL.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Übungsaufgaben"
+              "title": "Übung SQL"
             }
           }
         ],
@@ -124,7 +124,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Gamification/Annas Ideen.md",
+            "file": "Datenbanken/Lehrnzeug/Übung SQL.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -180,6 +180,10 @@
   },
   "active": "5f491369f60ce46d",
   "lastOpenFiles": [
+    "Datenbanken/Lehrnzeug/Übung zu ER.md",
+    "Datenbanken/Lehrnzeug/Übung SQL.md",
+    "Datenbanken/Lehrnzeug/Systematische Ableitung von Tabellenstrukturen.md",
+    "Datenbanken/Lehrnzeug/Übungsaufgaben.md",
     "Datenbanken/Vorlesung 07.11.2024.md",
     "Gamification/Annas Ideen.md",
     "Datenbanken/Unbenannt 1.md",
